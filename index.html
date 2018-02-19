@@ -21,18 +21,15 @@
     {
       .titulo
       {
-        font-family: 'Open Sans';
         font-weight: 500;
       }
       .nome
       {
-        font-family: 'Open Sans';
         font-weight: 700;
         font-size: 30px;
       }
       .descricao
       {
-        font-family: 'Open Sans';
         font-weight: 300;
         font-size: 20px;
       }
@@ -42,9 +39,13 @@
     {
       .titulo
       {
-        font-family: 'Open Sans';
         font-weight: 500;
       }
+    }
+
+    .body
+    {
+      font-family: 'Open Sans';
     }
 
   </style>
@@ -74,23 +75,21 @@
           <br><br><br>
           <img src="img/perfil.png" class="img-circle img-fluid">
         </div>
-        <div class="col-12 text-center perfil" style="background-color: #eaebea;">
+        <div class="descricao col-12 text-center perfil" style="background-color: #eaebea;">
           <br><br>
           <p>
-          <a class="nome">
+          <a id="nome" class="nome">
             Nome da pessoa
           </a>
           <br><br><br>
-          <a class="descricao">
-            Idade: 7
+            Idade: <a id="idade">7</a>
             <br>
-            Responsável: Nome do parente
+            Responsável: <a id="responsavel">Nome do parente</a>
             <br>
-            Telefone: (00) 123456789
+            Telefone: (<a id="pre-telefone">00</a>) <a id="telefone">123456789</a>
             <br><br><br>
             <br><br><br>
             Caso tenha encontrado o dependente, entre em contato com o Responsável pelo o telefone
-          </a>
           </p>
           <br>
         </div>
@@ -98,4 +97,26 @@
     </div>
 
   </body>
+
+  <script type="text/javascript">
+
+    $(document).ready(function(){
+      alimentarPerfil();
+    });
+
+    function alimentarPerfil()
+    {
+      var nome = "<?php echo $nome; ?>";
+      var idade = "<?php echo $idade; ?>";
+      var responsavel = "<?php echo $responsavel; ?>";
+      var preTelefone = "<?php echo $preTelefone; ?>";
+      var telefone = "<?php echo $telefone; ?>";
+      document.getElementById("nome").innerHTML = nome;
+      document.getElementById("idade").innerHTML = idade;
+      document.getElementById("responsavel").innerHTML = responsavel;
+      document.getElementById("pre-telefone").innerHTML = preTelefone;
+      document.getElementById("telefone").innerHTML = telefone;
+    }
+  </script>
+
 </html>
